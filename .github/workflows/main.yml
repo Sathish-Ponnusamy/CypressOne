@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkout-and-test in Firefox:
+  checkout-and-test:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -14,8 +14,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
+      - name: Check out repository code
+          uses: actions/checkout@v2
+
       - name: run cypress tests with firefox
-        uses: cypress-io/github-action@v4.1.0
+        uses: cypress-io/github-action@v2
         timeout-minutes: 10
         with:
           browser: firefox
