@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkout-and-test:
+  E2ETest-Firefox:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -24,3 +24,22 @@ jobs:
         timeout-minutes: 10
         with:
           browser: firefox
+          
+  E2ETest-Chrome:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # run 3 copies of the current job in parallel
+        containers: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: run cypress tests with firefox
+        uses: cypress-io/github-action@v4
+        timeout-minutes: 10
+        with:
+          browser: chrome
