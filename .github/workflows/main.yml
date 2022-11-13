@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkout-and-test:
+  checkout-and-test in Firefox:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -19,3 +19,32 @@ jobs:
         timeout-minutes: 10
         with:
           browser: firefox
+
+  checkout-and-test in Chrome:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: run cypress tests with chrome
+        uses: cypress-io/github-action@v4.1.0
+        timeout-minutes: 10
+        with:
+          browser: chrome
+
+
+  checkout-and-test in Edge:
+    runs-on: windows-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: run cypress tests with Edge
+        uses: cypress-io/github-action@v4.1.0
+        timeout-minutes: 10
+        with:
+          browser: edge
