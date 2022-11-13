@@ -43,7 +43,7 @@ jobs:
           path: build
 
       - name: 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v4.x.x # use the explicit version number
+        uses: cypress-io/github-action@v4.2.0 # use the explicit version number
         with:
           # we have already installed all dependencies above
           install: false
