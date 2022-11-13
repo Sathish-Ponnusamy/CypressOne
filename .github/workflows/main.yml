@@ -17,13 +17,13 @@ jobs:
           runTests: false
           node-version: '14.18.1'
           build: npm install
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
+#
+#      - name: Save build folder
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: build
+#          if-no-files-found: error
+#          path: build
   ui-chrome-tests:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
