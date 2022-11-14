@@ -10,9 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "allure-commandline": "^2.20.1",
     "install": "^0.13.0"
   },
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.34.0",
     "cypress": "^11.0.1"
   }
 }
